@@ -54,7 +54,11 @@ public class CameraStream implements Threadable {
         }
         Log.System("Webcam found!");
         webcam = Webcam.getDefault();
-        image = webcam.getImage();
+        Log.system("Opening Camera");
+        webcam.open();
+        while (true) {
+            image = webcam.getImage();
+        }
 	}
 
 	@Override

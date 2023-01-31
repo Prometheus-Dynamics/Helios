@@ -29,6 +29,7 @@ public class ThreadManager {
     }
 
     public static boolean hasThread(Class<? extends Threadable> threadable){
+        System.out.println(threadable.getClass().getSimpleName());
         return threads.containsKey(threadable.getClass().getSimpleName());
     }
 

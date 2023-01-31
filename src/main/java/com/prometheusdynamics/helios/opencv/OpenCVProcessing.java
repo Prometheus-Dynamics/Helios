@@ -29,7 +29,7 @@ public class OpenCVProcessing implements Threadable {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		}while(!ThreadManager.hasThread(CameraStream.class));
+		}while(CameraStream.getFrame() == null);
 		Log.System("Stream found!");
 		Mat mat = CameraStream.getMat();
 

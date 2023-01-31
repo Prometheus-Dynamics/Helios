@@ -9,6 +9,7 @@ import com.prometheusdynamics.helios.logging.TextEffect;
 import com.prometheusdynamics.helios.logging.TextEffect.Colour;
 import com.prometheusdynamics.helios.opencv.OpenCVProcessing;
 import com.prometheusdynamics.helios.thread.ThreadManager;
+import com.prometheusdynamics.helios.web.WebInterface;
 
 public class HeliosApplication {
 
@@ -18,6 +19,7 @@ public class HeliosApplication {
         InputStream is = classLoader.getResourceAsStream("logback.xml");
         WebcamLogConfigurator.configure(is);
         Log.error("Hello World");
+        ThreadManager.run(new WebInterface());
         ThreadManager.run(new CameraStream());
         ThreadManager.run(new OpenCVProcessing());
 
