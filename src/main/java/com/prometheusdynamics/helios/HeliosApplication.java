@@ -1,13 +1,16 @@
 package com.prometheusdynamics.helios;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.prometheusdynamics.helios.camera.CameraStream;
+import com.prometheusdynamics.helios.logging.Log;
+import com.prometheusdynamics.helios.logging.TextEffect;
+import com.prometheusdynamics.helios.logging.TextEffect.Colour;
+import com.prometheusdynamics.helios.thread.ThreadManager;
 
-@SpringBootApplication
 public class HeliosApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(HeliosApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        Log.setDebugMode(true);
+        Log.error("Hello World");
+        ThreadManager.run(new CameraStream());
+    }
 }
